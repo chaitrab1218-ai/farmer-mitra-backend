@@ -216,6 +216,10 @@ app.get("/api/health", (_req, res) => {
   res.json({ success: true, message: "Krushi Mitra API running (Neon DB + Email Auth)" });
 });
 
+app.get("/health", (_req, res) => {
+  res.status(200).json({ success: true, status: "healthy", message: "Krushi Mitra API running" });
+});
+
 // ── Email Authentication Routes (Sign Up & Login) ───────────────────────────
 
 /**
