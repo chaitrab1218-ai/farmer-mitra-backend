@@ -1,0 +1,20 @@
+# Dependencies
+node_modules/
+.dart_tool/
+.dart_cache/
+.pub/
+.pub-cache/
+
+# Environment & Secrets
+.env
+*.env.local
+
+# Builds
+build/
+*.class
+*.log
+.DS_Store
+
+# IDE
+.idea/
+*.iml

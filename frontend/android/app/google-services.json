@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "247319283107",
+    "project_id": "smart-fertilizer-b20be",
+    "storage_bucket": "smart-fertilizer-b20be.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:247319283107:android:9d25f6c93e55970c598616",
+        "android_client_info": {
+          "package_name": "com.example.smart_fertilizer_app"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyARbhEQkYYkSE1lp60oEk3_c7SftjzBM54"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

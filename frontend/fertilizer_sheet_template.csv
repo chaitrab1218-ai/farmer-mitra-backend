@@ -1,0 +1,4 @@
+id,name,category,brand,weight,price,shopName,district,phone,stock,updatedAt
+1,Urea,Nitrogen,IFFCO,45 kg,266.50,Your Shop Name,Your District,08000000000,20,2026-11-08
+2,DAP,Phosphatic,IFFCO,50 kg,1350,Your Shop Name,Your District,08000000000,10,2026-11-08
+3,NPK 10:26:26,Complex,Coromandel,50 kg,1500,Your Shop Name,Your District,08000000000,5,2026-11-08
