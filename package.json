@@ -3,9 +3,18 @@
   "version": "1.0.0",
   "private": true,
   "description": "Root runner for Render.com deployment",
+  "main": "backend/server.js",
   "scripts": {
     "build": "cd backend && npm install",
     "start": "node backend/server.js"
+  },
+  "dependencies": {
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.5",
+    "express": "^4.21.2",
+    "jsonwebtoken": "^9.0.2",
+    "jose": "^5.9.6",
+    "pg": "^8.13.3"
   },
   "engines": {
     "node": ">=18.0.0"
