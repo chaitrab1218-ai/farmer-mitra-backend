@@ -1105,22 +1105,60 @@ class _MainShellState extends State<MainShell> {
       else ...[
         ...cart.map((item) => Card(
               color: Colors.white,
-              child: ListTile(
-                leading: const CircleAvatar(
-                  backgroundColor: Color(0xFFE7F3E8),
-                  child: Icon(Icons.grass, color: Color(0xFF237A3B)),
+              margin: const EdgeInsets.only(bottom: 8),
+              child: Padding(
+                padding: const EdgeInsets.all(12),
+                child: Row(
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: [
+                    const CircleAvatar(
+                      backgroundColor: Color(0xFFE7F3E8),
+                      child: Icon(Icons.grass, color: Color(0xFF237A3B)),
+                    ),
+                    const SizedBox(width: 12),
+                    Expanded(
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Text(item.name, style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 15)),
+                          const SizedBox(height: 2),
+                          Text('${item.brand} • ${item.weight}', style: const TextStyle(fontSize: 12, color: Colors.black54)),
+                          Text(item.shopLabel, style: const TextStyle(fontSize: 11, color: Colors.black45)),
+                          const SizedBox(height: 4),
+                          Text(
+                            '₹${item.price.toStringAsFixed(2)}',
+                            style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 16, color: Color(0xFF237A3B)),
+                          ),
+                        ],
+                      ),
+                    ),
+                    const SizedBox(width: 8),
+                    Column(
+                      mainAxisSize: MainAxisSize.min,
+                      crossAxisAlignment: CrossAxisAlignment.end,
+                      children: [
+                        FilledButton(
+                          style: FilledButton.styleFrom(
+                            backgroundColor: const Color(0xFF237A3B),
+                            visualDensity: VisualDensity.compact,
+                            padding: const EdgeInsets.symmetric(horizontal: 14, vertical: 6),
+                          ),
+                          onPressed: () => _buyNow(item),
+                          child: Text(t('Buy Now', 'ಈಗ ಖರೀದಿಸಿ'), style: const TextStyle(fontSize: 12)),
+                        ),
+                        const SizedBox(height: 4),
+                        IconButton(
+                          visualDensity: VisualDensity.compact,
+                          padding: EdgeInsets.zero,
+                          constraints: const BoxConstraints(),
+                          icon: const Icon(Icons.delete_outline, color: Colors.red, size: 20),
+                          tooltip: t('Remove', 'ತೆಗೆದುಹಾಕಿ'),
+                          onPressed: () => setState(() => cart.remove(item)),
+                        ),
+                      ],
+                    ),
+                  ],
                 ),
-                title: Text(item.name),
-                subtitle: Text('${item.brand} • ${item.weight}\n${item.shopLabel}'),
-                isThreeLine: true,
-                trailing: Column(mainAxisAlignment: MainAxisAlignment.center, children: [
-                  Text('₹${item.price.toStringAsFixed(2)}',
-                      style: const TextStyle(fontWeight: FontWeight.bold)),
-                  TextButton(
-                    onPressed: () => _buyNow(item),
-                    child: Text(t('Buy Now', 'ಈಗ ಖರೀದಿಸಿ')),
-                  ),
-                ]),
               ),
             )),
         const SizedBox(height: 10),
