@@ -2,13 +2,13 @@ import 'dart:convert';
 import 'package:flutter/foundation.dart';
 import 'package:http/http.dart' as http;
 import 'package:shared_preferences/shared_preferences.dart';
+import 'config.dart';
 
 // ─────────────────────────────────────────────────────────────────────────────
 // AuthService — Email & Password Authentication + Neon DB Integration
 // ─────────────────────────────────────────────────────────────────────────────
 
-// Works on Web, Windows Desktop, and USB-connected Android phones via adb reverse.
-const String kApiBase = 'http://localhost:5000';
+String get kApiBase => AppConfig.apiUrl;
 
 const _kTokenKey = 'km_access_token';
 const _kUserKey  = 'km_user_profile';
@@ -94,7 +94,6 @@ class NeonAuthService {
   // ── Headers ───────────────────────────────────────────────────────────────
   static Map<String, String> get authHeaders => {
         'Content-Type': 'application/json',
-        'Origin': 'http://localhost:5000',
         if (_accessToken != null) 'Authorization': 'Bearer $_accessToken',
       };
 

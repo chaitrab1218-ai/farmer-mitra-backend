@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 import 'package:shared_preferences/shared_preferences.dart';
 import 'auth_service.dart';
+import 'config.dart';
 import 'login_page.dart';
 
 // ─────────────────────────────────────────────────────────────────────────────
@@ -11,7 +12,8 @@ import 'login_page.dart';
 // ─────────────────────────────────────────────────────────────────────────────
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  // Restore saved Neon Auth session on cold start
+  // Restore saved configuration and Neon Auth session on cold start
+  await AppConfig.load();
   await NeonAuthService.loadFromStorage();
   runApp(const KrushiMitraApp());
 }
@@ -73,9 +75,8 @@ class _AuthGateState extends State<AuthGate> {
   }
 }
 
-// Backend Express API base
-// Works on Web, Windows Desktop, and USB-connected Android phones via adb reverse.
-const String _kApiBase = 'http://localhost:5000';
+// Backend Express API base (configurable via AppConfig)
+String get _kApiBase => AppConfig.apiUrl;
 
 // ─────────────────────────────────────────────────────────────────────────────
 // API service — attaches Neon Auth JWT to every request

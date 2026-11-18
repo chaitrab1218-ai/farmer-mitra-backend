@@ -1,13 +1,14 @@
 import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
+import 'config.dart';
 
 // ─────────────────────────────────────────────────────────────────────────────
 // Admin Module — Login + Fertilizer CRUD + Orders View
 // Credentials: admin@gmail.com / Admin@123 (backend enforces)
 // ─────────────────────────────────────────────────────────────────────────────
 
-const String _adminApiBase = 'http://localhost:5000';
+String get _adminApiBase => AppConfig.apiUrl;
 
 // ══════════════════════════════════════════════════════════════════════════════
 // Admin Service

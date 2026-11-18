@@ -201,8 +201,18 @@ async function syncUser(req, res, next) {
 }
 
 // ── Health Check ──────────────────────────────────────────────────────────────
+app.get("/", (_req, res) => {
+  res.json({
+    success: true,
+    name: "Krushi Mitra Backend API",
+    status: "online",
+    version: "1.0.0",
+    healthCheck: "/api/health",
+  });
+});
+
 app.get("/api/health", (_req, res) => {
-  res.json({ success: true, message: "Krushi Mitra API running (Neon DB + Phone Auth)" });
+  res.json({ success: true, message: "Krushi Mitra API running (Neon DB + Email Auth)" });
 });
 
 // ── Email Authentication Routes (Sign Up & Login) ───────────────────────────
