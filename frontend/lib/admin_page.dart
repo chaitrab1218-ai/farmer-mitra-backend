@@ -354,6 +354,7 @@ class AdminShell extends StatelessWidget {
               const SizedBox(height: 12),
               DropdownButtonFormField<int>(
                 initialValue: selectedDistId,
+                isExpanded: true,
                 decoration: const InputDecoration(
                   labelText: 'Assign to Distributor *',
                   prefixIcon: Icon(Icons.storefront),
@@ -775,6 +776,7 @@ class _FertilizerFormDialogState extends State<_FertilizerFormDialog> {
                     padding: const EdgeInsets.only(bottom: 10),
                     child: DropdownButtonFormField<int>(
                       initialValue: _selectedDistributorId,
+                      isExpanded: true,
                       decoration: InputDecoration(
                         labelText: 'Distributor / Shop *',
                         prefixIcon: const Icon(Icons.storefront),
